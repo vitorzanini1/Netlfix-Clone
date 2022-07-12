@@ -5,9 +5,10 @@ import Button from "../../atoms/Button"
 
 interface ListInterface {
   moviesImg: string[]
+  title: string
 }
 
-function List({moviesImg}: ListInterface) {
+function List({moviesImg, title}: ListInterface) {
   const listaRef = useRef<HTMLDivElement>(null)
 
   function scroll(x: number) {
@@ -19,7 +20,7 @@ function List({moviesImg}: ListInterface) {
 
   return (
   <div className='categoria'>
-    <Title>Populares</Title>
+    <Title>{title}</Title>
     <div
       className='categoria-lista'
       ref={listaRef}

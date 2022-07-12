@@ -8,6 +8,7 @@ import './App.css';
 
 import Home from './pages/Login/Home';
 import Catalog from './pages/Catalog/Catalog';
+import Movie from './pages/Movie/Movie';
 
 function App() {
   const refTest = useRef<HTMLDivElement>(null)
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="catalogo" element={<Catalog />} />
+          <Route path="filme/:id" element={<Movie />} />
         </Routes>
       </BrowserRouter>
     </>
