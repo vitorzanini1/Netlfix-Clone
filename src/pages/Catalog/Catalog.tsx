@@ -1,36 +1,30 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import * as ApiTmbService from '../../services/apiTmdb'
-import Title from '../../components/atoms/Title'
 import List from '../../components/molecules/List'
+import MovieInterface from '../../models/interfaces/Movie'
+import HighlightMovie from '../../components/molecules/HighlightMovie'
 
 function Catalog() {
-  const navigate = useNavigate()
-  const [popularMovies, setPopularMovies] = useState<string[]>([])
-  const [topRatedMovies, setTopRatedMovies] = useState<string[]>([])
+  const [popularMovies, setPopularMovies] = useState<MovieInterface[]>([])
+  const [topRatedMovies, setTopRatedMovies] = useState<MovieInterface[]>([])
+  const [highlightMovie, setHighlightMovie] = useState<MovieInterface>()
+
 
   const imgUrl = 'https://image.tmdb.org/t/p/w300'
-
-  function sendToMovie(id:number) {
-    navigate('/filme/' + id)
-  }
+  const originalImgUrl = 'https://image.tmdb.org/t/p/original'
 
   useEffect(() => {
     function searchPopular() {
       ApiTmbService.getPolular()
         .then((response) => {
-          const novaResposta = response.results
-  
-          const novoObjeto = {
-            poster_path: 'Leandro'
-          }
-  
-          novaResposta.push(novoObjeto)
-  
           const movieImgs = response.results.map((result) => {
-            return imgUrl + result.poster_path
+            return {
+              backdrop_path: result.backdrop_path,
+              poster_path: imgUrl + result.poster_path,
+              title: result.title,
+              id: result.id,
+            }
           })
-          console.log(movieImgs)
           setPopularMovies(movieImgs)
         })
     }
@@ -38,18 +32,14 @@ function Catalog() {
     function searchTopRated() {
       ApiTmbService.getTopRated()
         .then((response) => {
-          const novaResposta = response.results
-  
-          const novoObjeto = {
-            poster_path: 'Leandro'
-          }
-  
-          novaResposta.push(novoObjeto)
-  
           const movieImgs = response.results.map((result) => {
-            return imgUrl + result.poster_path
+            return {
+              backdrop_path: result.backdrop_path,
+              poster_path: imgUrl + result.poster_path,
+              title: result.title,
+              id: result.id,
+            }
           })
-          console.log(movieImgs)
           setTopRatedMovies(movieImgs)
         })
     }
@@ -58,11 +48,21 @@ function Catalog() {
     searchTopRated()
   }, [])
 
+  useEffect(() => {
+    if (!popularMovies.length) return
+
+    const movie = popularMovies[Math.floor(Math.random() * popularMovies.length)]
+    movie.backdrop_path = originalImgUrl + movie.backdrop_path
+    movie.poster_path = imgUrl + movie.poster_path
+
+    setHighlightMovie(movie)
+
+  }, [popularMovies])
+
   return <>
-    <Title>Catalogo</Title>
-    <List title='Populares'  moviesImg={popularMovies} />
+    {highlightMovie && (<HighlightMovie movie={highlightMovie} />)}
+    <List title='Populares' moviesImg={popularMovies} />
     <List title='Top Assistidos' moviesImg={topRatedMovies} />
-    <button type='button' onClick={() => sendToMovie(438148)}>Redirect</button>
   </>
 }
 

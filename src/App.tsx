@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -11,9 +11,6 @@ import Catalog from './pages/Catalog/Catalog';
 import Movie from './pages/Movie/Movie';
 
 function App() {
-  const refTest = useRef<HTMLDivElement>(null)
-
-  console.log(refTest.current && refTest.current.scrollWidth)
 
   return (
     <>

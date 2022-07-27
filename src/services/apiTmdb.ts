@@ -1,5 +1,5 @@
 import api from "../config/api";
-import MovieInterface from "../models/interfaces/Movie";
+import MovieInterface, { ResultsInterface } from "../models/interfaces/Movie";
 
 const params = {
   api_key: process.env.REACT_APP_API_KEY,
@@ -13,11 +13,6 @@ interface PaginationInterface {
   total_pages: number
 }
 
-interface ResultsInterface {
-  poster_path: string | null
-  // id: number
-}
-
 async function getPolular() {
   return await api.get<PaginationInterface>('/movie/popular', { params })
       .then((response) => response.data)
@@ -29,7 +24,8 @@ async function getTopRated() {
 }
 
 async function getMovieDetails(movieId: number) {
-  return await api.get<MovieInterface>('/movie/' + movieId, { params })
+  const detailParams = { ...params, append_to_response: 'videos' }
+  return await api.get<MovieInterface>('/movie/' + movieId, { params: detailParams })
       .then((response) => response.data)
 }
 

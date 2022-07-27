@@ -1,14 +1,17 @@
-import React, {useRef} from "react"
+import React, { useRef } from "react"
+import { useNavigate } from 'react-router-dom'
 import Title from "../../atoms/Title"
 import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos } from "react-icons/md"
 import Button from "../../atoms/Button"
+import MovieInterface from '../../../models/interfaces/Movie'
 
 interface ListInterface {
-  moviesImg: string[]
+  moviesImg: MovieInterface[]
   title: string
 }
 
-function List({moviesImg, title}: ListInterface) {
+function List({ moviesImg, title }: ListInterface) {
+  const navigate = useNavigate()
   const listaRef = useRef<HTMLDivElement>(null)
 
   function scroll(x: number) {
@@ -18,34 +21,40 @@ function List({moviesImg, title}: ListInterface) {
     })
   }
 
+  function sendToMovie(id: number) {
+    navigate('/filme/' + id)
+  }
+
   return (
-  <div className='categoria'>
-    <Title>{title}</Title>
-    <div
-      className='categoria-lista'
-      ref={listaRef}
-    >
-      <Button
-        className='botao-lista categoria-esquerda'
-        onClick={() => scroll(-300)}
+    <div className='categoria'>
+      <Title>{title}</Title>
+      <div
+        className='categoria-lista'
+        ref={listaRef}
       >
-        <MdOutlineArrowBackIosNew className='icone' size={35} />
-      </Button>
-      {
-        moviesImg.map((movieImg, index) => {
-          return <>
-            <img src={movieImg} alt={`${index}`} />
-          </>
-        })
-      }
-      <Button
-        className='botao-lista categoria-direita'
-        onClick={() => scroll(300)}
-      >
-        <MdOutlineArrowForwardIos className='icone' size={35} />
-      </Button>
+        <Button
+          className='botao-lista categoria-esquerda'
+          onClick={() => scroll(-300)}
+        >
+          <MdOutlineArrowBackIosNew className='icone' size={35} />
+        </Button>
+        {
+          moviesImg.map((movieImg, index) => {
+            return <img 
+            key={`${index}-img`} 
+            src={movieImg.poster_path + ''} 
+            alt={`${index}`}
+            onClick={() => sendToMovie(movieImg.id)} />
+          })
+        }
+        <Button
+          className='botao-lista categoria-direita'
+          onClick={() => scroll(300)}
+        >
+          <MdOutlineArrowForwardIos className='icone' size={35} />
+        </Button>
+      </div>
     </div>
-  </div>
   )
 }
 
