@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import * as ApiTmbService from '../../services/apiTmdb'
 import List from '../../components/molecules/List'
-import MovieInterface from '../../models/interfaces/Movie'
+import MovieInterface, { SimpleMovieInterface } from '../../models/interfaces/Movie'
 import HighlightMovie from '../../components/molecules/HighlightMovie'
 
 function Catalog() {
-  const [popularMovies, setPopularMovies] = useState<MovieInterface[]>([])
-  const [topRatedMovies, setTopRatedMovies] = useState<MovieInterface[]>([])
+  const [popularMovies, setPopularMovies] = useState<SimpleMovieInterface[]>([])
+  const [topRatedMovies, setTopRatedMovies] = useState<SimpleMovieInterface[]>([])
   const [highlightMovie, setHighlightMovie] = useState<MovieInterface>()
 
 
@@ -19,10 +19,9 @@ function Catalog() {
         .then((response) => {
           const movieImgs = response.results.map((result) => {
             return {
-              backdrop_path: result.backdrop_path,
+              ...result,
+              backdrop_path: originalImgUrl + result.backdrop_path,
               poster_path: imgUrl + result.poster_path,
-              title: result.title,
-              id: result.id,
             }
           })
           setPopularMovies(movieImgs)
@@ -34,10 +33,9 @@ function Catalog() {
         .then((response) => {
           const movieImgs = response.results.map((result) => {
             return {
-              backdrop_path: result.backdrop_path,
+              ...result,
+              backdrop_path: originalImgUrl + result.backdrop_path,
               poster_path: imgUrl + result.poster_path,
-              title: result.title,
-              id: result.id,
             }
           })
           setTopRatedMovies(movieImgs)
@@ -52,8 +50,6 @@ function Catalog() {
     if (!popularMovies.length) return
 
     const movie = popularMovies[Math.floor(Math.random() * popularMovies.length)]
-    movie.backdrop_path = originalImgUrl + movie.backdrop_path
-    movie.poster_path = imgUrl + movie.poster_path
 
     setHighlightMovie(movie)
 

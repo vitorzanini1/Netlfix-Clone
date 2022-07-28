@@ -1,4 +1,5 @@
 export default interface MovieInterface {
+  overview: string
   backdrop_path: string | null
   poster_path: string | null
   title: string
@@ -12,7 +13,8 @@ export interface VideoInterface {
   key: string
 }
 
-export interface ResultsInterface {
+export interface SimpleMovieInterface {
+  overview: string
   backdrop_path: string | null
   poster_path: string | null
   title: string

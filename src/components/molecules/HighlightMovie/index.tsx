@@ -30,6 +30,7 @@ function HighlightMovie({ movie }: HighlightMovieInterface) {
           height: 'inherit',
         }}>
           <Title>{movie.title}</Title>
+          <h2>{movie.overview}</h2>
           <br />
           <button
             onClick={() => sendToMovie(movie.id)}

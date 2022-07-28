@@ -1,5 +1,5 @@
 import api from "../config/api";
-import MovieInterface, { ResultsInterface } from "../models/interfaces/Movie";
+import MovieInterface, { SimpleMovieInterface } from "../models/interfaces/Movie";
 
 const params = {
   api_key: process.env.REACT_APP_API_KEY,
@@ -8,7 +8,7 @@ const params = {
 
 interface PaginationInterface {
   page: number
-  results: ResultsInterface[]
+  results: SimpleMovieInterface[]
   total_results: number
   total_pages: number
 }

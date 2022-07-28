@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import Title from "../../atoms/Title"
 import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos } from "react-icons/md"
 import Button from "../../atoms/Button"
-import MovieInterface from '../../../models/interfaces/Movie'
+import {SimpleMovieInterface} from '../../../models/interfaces/Movie'
 
 interface ListInterface {
-  moviesImg: MovieInterface[]
+  moviesImg: SimpleMovieInterface[]
   title: string
 }
 

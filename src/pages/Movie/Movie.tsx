@@ -25,6 +25,7 @@ function Movie() {
   return <>
 
     <h1>{movie && movie.title}</h1>
+    <h2>{movie && movie.overview}</h2>
     {movie && movie.backdrop_path && (
       <img src={imgUrl + movie.backdrop_path} alt="" />
     )}
