@@ -8,7 +8,7 @@ function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home"><img className='logo-netflix-header' src='https://o.remove.bg/downloads/a79d559a-a877-4206-9738-b5842ee4a002/poster-impresso-netflix-logo-basquete-removebg-preview.png'></img></Navbar.Brand>
+        <Navbar.Brand href="#home"><img className='logo-netflix-header' src='https://o.remove.bg/downloads/601972a8-0d65-4d06-9429-37d8f0039ba3/Logo-Netflix-Branding-removebg-preview.png'></img></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
