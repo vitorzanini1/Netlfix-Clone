@@ -11,23 +11,29 @@ body {
 }
 
 .categoria {
-
+  background-color: #0f0f0f;
+  color: white;
+  
 }
-
+.titulo-categoria {
+  font-size: 20px;
+}
 .categoria-titulo {
-
+  
 }
+
 
 .categoria-lista {
   display: flex;
   overflow: hidden;
+  
 }
 
 .categoria-lista img {
-  height: 200px;
+  height: 250px;
   transform: scale(0.9);
   transition: ease 0.2s;
-  border-radius: 20px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -59,4 +65,75 @@ body {
 
 .icone:hover {
   transform: scale(1.2);
+}
+
+
+/* header */
+
+.logo-netflix-header {
+  width: 100px;
+  right: 100px;
+  margin: -25px;
+  margin-left: -100px;
+}
+
+.imagem-perfil-header {
+  width: 35px;
+  right: 35px;
+}
+/* filme destaque */
+
+.titulo-filme-destaque {
+  color: white;
+}
+.botao-filme-destaque-assistir {
+  margin: 2px;
+  
+}
+.botao-filme-destaque-informacao{
+  margin: 2px;
+  
+}
+
+.container-filme-destaque {
+  padding-left: 4%;
+  padding-top: 5%;
+}
+
+.descricao-filme-destaque {
+  font-size: 15px;
+  text-align: justify;
+  padding-right: 60%;
+  padding-top: 1%;
+  color: white;
+}
+
+/* filme selecionado */
+.titulo-especifico {
+   color: white;
+   text-align: center;
+}
+
+.descricao-especifico {
+  color:#FFF;
+  font-size: 15px;
+  display: flex;
+  text-align: justify;
+  padding: 25px;
+  
+}
+
+.container-especifico {
+  background-color: #0f0f0f;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-top: 6%;
+  margin-top: 5%;
+  border-radius: 8px;
+  margin-bottom: 5%;
+}
+
+.imagem-especifico {
+  margin-left: 30%;
+  padding-bottom: 25px;
 }

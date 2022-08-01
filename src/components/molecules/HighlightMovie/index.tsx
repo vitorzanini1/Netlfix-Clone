@@ -2,6 +2,7 @@ import React from "react"
 import MovieInterface from '../../../models/interfaces/Movie'
 import { useNavigate } from 'react-router-dom'
 import Title from '../../atoms/Title'
+import Button from 'react-bootstrap/Button';
 
 interface HighlightMovieInterface {
   movie: MovieInterface
@@ -29,12 +30,19 @@ function HighlightMovie({ movie }: HighlightMovieInterface) {
           backgroundImage: 'linear-gradient(to right, #111 20%, transparent 80%',
           height: 'inherit',
         }}>
-          <Title>{movie.title}</Title>
-          <h2>{movie.overview}</h2>
-          <br />
-          <button
-            onClick={() => sendToMovie(movie.id)}
-          >Assistir</button>
+          <div className="container-filme-destaque">
+            <Title className="titulo-filme-destaque">{movie.title}</Title>
+            <h2 className="descricao-filme-destaque">{movie.overview}</h2>
+            <br />
+                <div className="botoes-destaque">
+                <Button variant="primary" size="lg" active>
+                  Assistir
+                </Button>{' '}
+                <Button variant="secondary" size="lg" active>
+                  Informações
+                </Button>
+                </div>
+          </div>
         </div>
       </div>
     </div>
@@ -42,3 +50,4 @@ function HighlightMovie({ movie }: HighlightMovieInterface) {
 }
 
 export default HighlightMovie
+

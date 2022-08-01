@@ -27,7 +27,7 @@ function List({ moviesImg, title }: ListInterface) {
 
   return (
     <div className='categoria'>
-      <Title>{title}</Title>
+      <Title className="titulo-categoria">{title}</Title>
       <div
         className='categoria-lista'
         ref={listaRef}

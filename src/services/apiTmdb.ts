@@ -22,6 +22,15 @@ async function getTopRated() {
   return await api.get<PaginationInterface>('/movie/top_rated', { params })
       .then((response) => response.data)
 }
+async function getUpcoming() {
+  return await api.get<PaginationInterface>('/movie/upcoming', { params })
+      .then((response) => response.data)
+}
+async function getNowplaying() {
+  return await api.get<PaginationInterface>('/movie/now_playing', { params })
+      .then((response) => response.data)
+}
+
 
 async function getMovieDetails(movieId: number) {
   const detailParams = { ...params, append_to_response: 'videos' }
@@ -29,8 +38,11 @@ async function getMovieDetails(movieId: number) {
       .then((response) => response.data)
 }
 
+
 export {
   getPolular,
   getTopRated,
-  getMovieDetails
+  getMovieDetails,
+  getUpcoming,
+  getNowplaying
 }

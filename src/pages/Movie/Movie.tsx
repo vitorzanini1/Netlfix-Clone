@@ -23,14 +23,16 @@ function Movie() {
   }, [id, movie])
 
   return <>
-
-    <h1>{movie && movie.title}</h1>
-    <h2>{movie && movie.overview}</h2>
-    {movie && movie.backdrop_path && (
-      <img src={imgUrl + movie.backdrop_path} alt="" />
-    )}
-    <br />
-    {videoKey && <VideoFrame width="550" height="300" videoKey={videoKey + ''} />}
+    <div className="container-especifico">
+      <h1 className="titulo-especifico">{movie && movie.title}</h1>
+      <h2 className="descricao-especifico">{movie && movie.overview}</h2>
+      {movie && movie.backdrop_path && (
+        <img className="imagem-especifico" src={imgUrl + movie.backdrop_path} alt="" />
+      )}
+      <br />
+      
+      {videoKey && <VideoFrame  width="550" height="300" videoKey={videoKey + ''} />}
+    </div>
   </>
 }
 
