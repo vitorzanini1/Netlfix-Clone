@@ -3,15 +3,17 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed='top'>
       <Container>
-        <Navbar.Brand href="#home"><img className='logo-netflix-header' src='https://o.remove.bg/downloads/601972a8-0d65-4d06-9429-37d8f0039ba3/Logo-Netflix-Branding-removebg-preview.png'></img></Navbar.Brand>
+        <Navbar.Brand href="#home"><img className='logo-netflix-header' src='https://logodownload.org/wp-content/uploads/2014/10/netflix-logo-5.png'></img></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
+          <Nav.Link ><Link to="/catalogo" style={{color: '#FFF',textDecoration: 'none'}}>Home</Link></Nav.Link>
             <Nav.Link href="#features">Filmes</Nav.Link>
             <Nav.Link href="#pricing">Séries</Nav.Link>
             <NavDropdown title="Categorias" id="collasible-nav-dropdown">

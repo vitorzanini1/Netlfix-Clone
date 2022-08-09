@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import * as ApiTmbService from '../../services/apiTmdb'
 import MovieInterface from "../../models/interfaces/Movie";
 import VideoFrame from "../../components/atoms/VideoFrame";
+import Header from "../../components/molecules/Header";
 
 function Movie() {
   const { id } = useParams();
@@ -23,6 +24,7 @@ function Movie() {
   }, [id, movie])
 
   return <>
+  <Header></Header>
     <div className="container-especifico">
       <h1 className="titulo-especifico">{movie && movie.title}</h1>
       <h2 className="descricao-especifico">{movie && movie.overview}</h2>
@@ -30,8 +32,10 @@ function Movie() {
         <img className="imagem-especifico" src={imgUrl + movie.backdrop_path} alt="" />
       )}
       <br />
-      
+      <h1 className="titulo-trailer">Trailer</h1>
+      <div className="trailer-especifico">
       {videoKey && <VideoFrame  width="550" height="300" videoKey={videoKey + ''} />}
+      </div>
     </div>
   </>
 }

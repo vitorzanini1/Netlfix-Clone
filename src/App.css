@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 * {
   margin: 0;
@@ -8,12 +9,13 @@ body {
   background-color: #0f0f0f;
   font-family: 'Roboto', sans-serif;
   color: #FFF;
+  
 }
 
 .categoria {
   background-color: #0f0f0f;
   color: white;
-  
+  padding-top: 3%;
 }
 .titulo-categoria {
   font-size: 20px;
@@ -26,11 +28,11 @@ body {
 .categoria-lista {
   display: flex;
   overflow: hidden;
-  
+
 }
 
 .categoria-lista img {
-  height: 250px;
+  height: 230px;
   transform: scale(0.9);
   transition: ease 0.2s;
   border-radius: 8px;
@@ -74,7 +76,8 @@ body {
   width: 100px;
   right: 100px;
   margin: -25px;
-  margin-left: -100px;
+  margin-left: -30%;
+  padding-right: 10px;
 }
 
 .imagem-perfil-header {
@@ -85,6 +88,9 @@ body {
 
 .titulo-filme-destaque {
   color: white;
+  font-size: 85px;
+  font-family: 'Bebas Neue';
+  padding-top: 3%;
 }
 .botao-filme-destaque-assistir {
   margin: 2px;
@@ -110,30 +116,42 @@ body {
 
 /* filme selecionado */
 .titulo-especifico {
-   color: white;
+   padding-top: 80px;
+   color: rgb(255, 255, 255);
+   font-size: 60px;
    text-align: center;
+   font-family: 'Bebas Neue'
 }
 
 .descricao-especifico {
-  color:#FFF;
+  color:rgb(255, 255, 255);
   font-size: 15px;
   display: flex;
   text-align: justify;
   padding: 25px;
+  margin-left: 20% ;
+  margin-right: 20%;
   
 }
 
 .container-especifico {
   background-color: #0f0f0f;
-  margin-left: 15%;
-  margin-right: 15%;
-  padding-top: 6%;
-  margin-top: 5%;
-  border-radius: 8px;
-  margin-bottom: 5%;
 }
 
 .imagem-especifico {
-  margin-left: 30%;
+  margin-left: 38%;
   padding-bottom: 25px;
 }
+.titulo-trailer {
+  color: white;
+  font-family: 'Bebas Neue';
+  text-align: center;
+}
+.trailer-especifico {
+  text-align: center;
+}
+
+.corpo-login {
+ background-image: url('https://observatoriodocinema.uol.com.br/wp-content/uploads/2021/01/fon-netflix-logo-raduga-tsvet-fon-background-skachat-oboi-sk.jpg');
+}
+
